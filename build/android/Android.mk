@@ -26,7 +26,9 @@ LOCAL_SRC_FILES :=              \
 LOCAL_C_LIBS := $(CAMX_C_LIBS)
 
 LOCAL_C_INCLUDES :=               \
-    $(CAMX_C_INCLUDES)
+    $(CAMX_C_INCLUDES)            \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include             \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/camera/include/uapi
 
 # Compiler flags
 LOCAL_CFLAGS := $(CAMX_CFLAGS)
