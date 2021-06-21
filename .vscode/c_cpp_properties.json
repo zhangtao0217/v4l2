@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/tao/pro/ep/BITRA_LA20_R/LINUX/android/kernel/msm-4.19/include",
+                "/home/tao/pro/ep/BITRA_LA20_R/LINUX/android/kernel/msm-4.19/techpack/camera/include",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/cpp",
+            "cStandard": "gnu11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

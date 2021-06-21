@@ -15,12 +15,12 @@ SUPPORT_FUNCTION_CALL_TRACE := 1
 include $(CAMX_CHICDK_PATH)/core/build/android/common.mk
 
 LOCAL_INC_FILES :=              \
-    VideoCapture.h                    \
+    Hwinternel.h                    \
     types.h                                     \
     utils.h
 
 LOCAL_SRC_FILES :=              \
-    VideoCapture.cpp                \
+    Hwinternel.cpp                \
     utils.cpp
 
 LOCAL_C_LIBS := $(CAMX_C_LIBS)

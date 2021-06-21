@@ -7,3 +7,4 @@ VOID StrError(
 {
     (void)strlcpy(pErrorMsg, strerror(errorNum), errorMsgSize);
 }
+
