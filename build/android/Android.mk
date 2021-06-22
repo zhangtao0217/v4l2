@@ -17,6 +17,7 @@ include $(CAMX_CHICDK_PATH)/core/build/android/common.mk
 LOCAL_INC_FILES :=              \
     Hwinternel.h                    \
     types.h                                     \
+    debug.h                                 \
     utils.h
 
 LOCAL_SRC_FILES :=              \

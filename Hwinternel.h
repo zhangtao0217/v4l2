@@ -11,6 +11,11 @@
 #include "types.h"
 
 
+static const INT   MaxDevName              = 64;  ///< Max size of a KMD device name
+static const INT32  CSLHwMaxDevOpenPolls   = 5;                         ///< Maximum device open poll attempts
+static const INT32  maxSleepTime = 100000;
+static const INT32  EBUSY_CODE             = 114;                       ///< Error code number for operation already in progress
+
 // @brief CSLHw KMD device classifications.
 typedef enum
 {
@@ -20,15 +25,14 @@ typedef enum
     InternalHwVideoInvalid         ///< This is upper bound check value
 } HwInternalHwEnumeration;
 
-static const INT   MaxDevName              = 64;  ///< Max size of a KMD device name
-
-
 typedef struct 
 {
     CHAR deviceName[MaxDevName];
     INT32 fd;
+    INT32 kmdGroupId;
 
 } HwDevice;
+
 typedef struct
 {
     HwDevice requestManager;                                                 //request manger KMD device
@@ -39,9 +43,26 @@ typedef struct
 }HWInstance;
 HWInstance g_HWinstance;
 
-
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// EnumAndAddHwDevice
+///
+/// @brief 两个ioctl包装
+/// @param  see
+///
+/// @return None
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Result defaultIoctl(const HwDevice* pDevice, unsigned long request, VOID* pArg);
 Result defaultIoctl(INT32 Fd, unsigned long request, VOID* pArg);
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// EnumAndAddHwDevice
+///
+/// @brief 具体初始化动作，打开media返回的 注册好的模块/dev/video等等
+/// @param  see
+///
+/// @return None
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+BOOL HwAddKMDPrivateDeviceToInstance(const CHAR* deviceName, UINT32 groupId);
+
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// EnumAndAddHwDevice
 ///
